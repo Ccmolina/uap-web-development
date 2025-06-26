@@ -1,0 +1,196 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Times New Roman', serif;
+  color: #333;
+  background-color: #f8cce0;
+}
+
+.background {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('https://i.pinimg.com/736x/57/ec/48/57ec48989ffd4060870088036e083c69.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 2.9;
+  z-index: -1;
+  filter: blur(3px);
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  max-width: 600px;
+  margin: 3rem auto;
+  background-color: rgba(243, 234, 236, 0.85);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+h1, .main-title {
+  text-align: center;
+  color: #f756a4df;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  font-family: 'Caveat', cursive;
+}
+
+.decorative-img {
+  display: block;
+  margin: 1rem auto 2rem;
+  width: 300px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 2px solid #eb20678d;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  font-family: 'Times New Roman', serif;
+}
+
+button {
+  background-color: #f783ac;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0.25rem;
+  font-family: 'Times New Roman', serif;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #e190ab;
+  transform: scale(1.05);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background-color: rgba(246, 151, 202, 0.6);
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(2px);
+}
+
+.config-button {
+  background-color: #ee77a5c5;
+  color: rgb(243, 233, 233);
+  padding: 0.1rem 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.config-button:hover {
+  background-color: #efb5ca;
+}
+
+.login-card {
+  max-width: 400px;
+  margin: 5rem auto;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.login-icon {
+  width: 80px;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-form input {
+  padding: 0.75rem;
+  border: 2px solid #eb20678d;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  font-family: 'Times New Roman', serif;
+}
+
+/* 🔽 Tooltip de miembros */
+.tooltip-miembros {
+  position: absolute;
+  bottom: 110%;
+  right: 0;
+  background-color: #fff0f5;
+  border: 2px solid #f783ac;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 10;
+  max-width: 300px;
+  font-size: 0.95rem;
+  animation: fadeIn 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tooltip-miembros .close-button {
+  align-self: flex-end;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: #c42d6b;
+  cursor: pointer;
+  margin-top: -0.5rem;
+  margin-right: -0.5rem;
+}
+
+.tooltip-miembros .close-button:hover {
+  color: #a0144c;
+}
+
+/* Animación opcional */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
