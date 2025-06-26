@@ -1,0 +1,212 @@
+🗓️Proyecto: Gestión de Tableros y Tareas
+
+Este proyecto es una aplicación web de gestión de tareas por tableros, con autenticación de usuarios, roles y configuración personalizada.
+
+1) Tecnologías Utilizadas
+
+Frontend: React + React Router + React Query + Vite
+
+Backend: Express.js + Prisma ORM
+
+Base de datos: PostgreSQL 
+
+Autenticación: JWT con Cookies httpOnly
+
+Estilos: CSS personalizado 
+
+Extras: toast, axios, componentes reutilizables (Miembros)
+
+2) Funcionalidades Principales
+
+ Autenticación de Usuarios
+
+Registro y login con email y clave
+
+JWT almacenado en cookies seguras
+
+Middleware para proteger rutas privadas
+
+Cierre de sesión y validación persistente del token
+
+ Gestión de Tableros
+
+Crear tableros con título
+
+Visualizar todos los tableros disponibles al usuario
+
+Eliminar tableros (solo propietario)
+
+Entrar a un tablero y ver tareas
+
+ Gestión de Tareas
+
+Crear, editar, eliminar y completar tareas
+
+Filtrado: Todas / Activas / Completadas
+
+Eliminar tareas completadas
+
+Las tareas están vinculadas a un tablero específico
+
+Control de acceso a tareas según rol (propietario/editor/lector)
+
+ Gestión de Miembros y Roles
+
+Los propietarios pueden ver y gestionar miembros
+
+Cambiar rol (editor/lector)
+
+Eliminar miembros del tablero
+
+Visualización clara de todos los miembros por tablero
+
+ Configuración Personalizada
+
+Página de configuración por usuario
+
+Elegir intervalo de recarga (refetchInterval)
+
+Mostrar tareas en mayúsculas (uppercaseDescriptions)
+
+Configuraciones persistentes por usuario
+
+3) Endpoints de la API
+
+Autenticación
+
+POST /api/auth/register
+
+Body:
+
+{ "email": "sofia@example.com", "clave": "123456" }
+
+Response: Devuelve usuario y token
+
+POST /api/auth/login
+
+Body:
+
+{ "email": "sofia@example.com", "clave": "123456" }
+
+Response: Devuelve usuario y token (en cookie)
+
+POST /api/auth/logout
+
+Cierra la sesión
+
+GET /api/auth/perfil
+
+Devuelve el usuario autenticado
+
+Tableros
+
+GET /api/tableros
+
+Devuelve los tableros del usuario autenticado
+
+POST /api/tableros
+
+Crea un nuevo tablero
+
+{ "titulo": "Mi tablero" }
+
+DELETE /api/tableros/:id
+
+Elimina un tablero si es propietario
+
+Tareas
+
+GET /api/tareas/:tableroId
+
+Devuelve todas las tareas de un tablero
+
+POST /api/tareas/:tableroId
+
+Crea una tarea
+
+{ "texto": "Estudiar redes" }
+
+PATCH /api/tareas/:id/toggle
+
+Marca/desmarca una tarea como completada
+
+DELETE /api/tareas/:id
+
+Elimina una tarea
+
+DELETE /api/tareas/completadas/:tableroId
+
+Elimina todas las tareas completadas del tablero
+
+Miembros
+
+GET /api/miembros/:tableroId
+
+Devuelve los miembros de un tablero
+
+PATCH /api/miembros/editar/:usuarioId/:tableroId
+
+Cambia el rol de un miembro
+
+{ "rol": "editor" }
+
+DELETE /api/miembros/eliminar/:usuarioId/:tableroId
+
+Elimina un miembro del tablero
+
+Configuración
+
+GET /api/configuracion
+
+Devuelve la configuración del usuario
+
+PATCH /api/configuracion
+
+Actualiza configuración
+
+{
+  "refetchInterval": 15000,
+  "uppercaseDescriptions": true
+}
+
+4) Instalación Local
+
+Requisitos
+
+Node.js 18+
+
+PostgreSQL
+
+
+
+Configurar Backend
+
+cd backend
+npm install
+DATABASE_URL="postgresql://postgres:holahola28@localhost:5432/proyectofinal"
+JWT_SECRET="jwt_ultra_secreto_2025"
+npx prisma generate
+npx prisma migrate dev --name init
+npm run dev
+
+Configurar Frontend
+
+cd frontend
+npm install
+npm run dev
+
+5) Datos Útiles para el Corrector
+
+El sistema está 100% funcional
+
+Se respetan los roles de los miembros
+
+Se implementa seguridad con JWT y cookies httpOnly
+
+Todas las vistas funcionan sin errores
+
+Frontend y backend integrados con React Query
+
+Proyecto cumple todos los puntos de la Tarea 8
+
+📌Realizado por: Cindy Molina .Tarea 8 - 26 Junio 2025

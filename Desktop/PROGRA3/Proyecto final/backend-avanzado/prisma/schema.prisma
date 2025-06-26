@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Usuario {
+  id         Int        @id @default(autoincrement())
+  email      String     @unique
+  clave      String
+  nombre     String
+  tableros   Tablero[]  @relation("TablerosCreados")
+  membresias Miembro[]
+}
+
+model Tablero {
+  id            Int       @id @default(autoincrement())
+  titulo        String
+  propietarioId Int
+  propietario   Usuario   @relation("TablerosCreados", fields: [propietarioId], references: [id])
+  tareas        Tarea[]
+  miembros      Miembro[]
+}
+
+model Tarea {
+  id         Int      @id @default(autoincrement())
+  titulo     String
+  completada Boolean  @default(false)
+  tableroId  Int
+  tablero    Tablero  @relation(fields: [tableroId], references: [id])
+  creadaEn   DateTime @default(now())
+}
+
+model Miembro {
+  id         Int      @id @default(autoincrement())
+  usuario    Usuario  @relation(fields: [usuarioId], references: [id])
+  usuarioId  Int
+  tablero    Tablero  @relation(fields: [tableroId], references: [id])
+  tableroId  Int
+  rol        String   // 'lector' | 'editor' | 'propietario'
+
+@@unique([usuarioId, tableroId])
+
+}
