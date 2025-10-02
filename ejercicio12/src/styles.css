@@ -1,0 +1,78 @@
+:root{
+  --bg:#fff;
+  --pink-25:#fff6fa;
+  --pink-50:#ffeaf2;
+  --pink-100:#ffd7e6;
+  --pink-400:#ff6aa6;
+  --pink-500:#f73d8c;
+  --pink-600:#e21f79;
+  --ink:#121826;
+  --muted:#5b677a;
+  --border:#ffd1e6;
+  --shadow: 0 16px 42px rgba(226,31,121,.16);
+  --radius: 18px;
+}
+
+
+html,body,#root{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(1000px 400px at 50% -120px, var(--pink-50), #fff) no-repeat;
+}
+
+
+.header{
+  max-width:1180px; margin:28px auto 6px; padding:0 24px;
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+}
+.brand{
+  display:flex; align-items:baseline; gap:10px;
+}
+.title{
+  margin:0; font-weight:900; letter-spacing:.3px;
+  color:#7c0f4c; text-shadow: 0 1px 0 #fff;
+  font-size: clamp(26px,3.2vw,42px);
+}
+.subtitle{ margin:0; color:var(--muted); font-size:12px }
+
+
+.btn{
+  border:1px solid var(--border); background:#fff; color:#7c0f4c;
+  padding:10px 14px; border-radius:12px; font-weight:700; cursor:pointer;
+  transition:all .18s ease; box-shadow: 0 2px 0 rgba(0,0,0,.02);
+}
+.btn:hover{ background:var(--pink-25) }
+.btn:disabled{ opacity:.6; cursor:not-allowed }
+.btn-primary{
+  background:var(--pink-600); color:#fff; border-color:transparent; box-shadow: var(--shadow);
+}
+.btn-primary:hover{ background:var(--pink-500) }
+.badge{
+  display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:800;
+}
+.badge-ok{ background:#d1fae5; color:#065f46 } .badge-no{ background:#ffe4e6; color:#9f1239 }
+
+
+.main{
+  max-width:1180px; margin: 10px auto 28px; padding:0 24px;
+  display:grid; grid-template-columns: repeat(12, 1fr); gap:18px;
+}
+.card{
+  grid-column: span 4;
+  background:var(--bg); border:1px solid var(--border); border-radius: var(--radius);
+  padding:20px; box-shadow: var(--shadow);
+}
+.card-lg{ grid-column: 1 / -1; }
+.card h2{ margin:4px 0 12px 0; font-size:18px; color:#7c0f4c }
+.kv{ margin:8px 0; font-size:14px; color:var(--muted) } .kv b{ color:var(--ink) }
+.addr{ font-family: ui-monospace, Menlo, Consolas, "Courier New", monospace; word-break:break-all }
+
+
+.list{ max-height:360px; overflow:auto; margin:0; padding:0; list-style:none }
+.item{ display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 0; border-bottom:1px dashed #ffe3ef }
+
+
+.footer{ max-width:1180px; margin:0 auto 24px; padding:0 24px; color:var(--muted); font-size:12px; }
